@@ -43,6 +43,10 @@ public final class Period implements Serializable {
 
         private static final long serialVersionUID =
                 234098243823485285L; // 아무 값이나 상관없다. (아이템 87)
+
+        private Object readResolve() {
+            return new Period(start, end);
+        }
     }
 
     // 직렬화 프록시 패턴용 writeReplace 메서드 (480쪽)
